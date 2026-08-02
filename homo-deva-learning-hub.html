@@ -1,0 +1,1321 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Homo Deva Learning Hub — Belajar Kritis, Bukan Percaya Buta</title>
+<meta name="description" content="Media belajar untuk memahami buku Homo Deva secara kritis: memisahkan fakta ilmiah, hipotesis, opini, dan refleksi filosofis." />
+
+<!-- Favicon SVG Baru: Bentuk Gabungan Modern -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%2338BDF8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='10' y='10' width='80' height='80' rx='20' fill='url(%23grad)'/%3E%3Ccircle cx='35' cy='50' r='12' fill='white'/%3E%3Crect x='55' y='38' width='20' height='24' rx='4' fill='white'/%3E%3C/svg%3E">
+<!-- Open Graph -->
+<meta property="og:title" content="Homo Deva Learning Hub" />
+<meta property="og:description" content="Belajar dan membandingkan gagasan buku Homo Deva dengan sains, filsafat, dan sejarah evolusi manusia — secara kritis." />
+<meta property="og:type" content="website" />
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Homo Deva Learning Hub",
+  "description": "Platform edukasi untuk mengkaji buku Homo Deva secara kritis, membandingkannya dengan sains, filsafat, dan evolusi manusia."
+}
+</script>
+
+<!-- Font (Diperbaiki: pakai fallback jika link mati) -->
+<style>
+@font-face {
+  font-family: 'Space Grotesk';
+  font-display: swap;
+  src: local('Segoe UI'), local('Roboto'), local('Arial');
+}
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Segoe UI'), local('Roboto'), local('Arial');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-display: swap;
+  src: local('Consolas'), local('Monaco'), monospace;
+}
+.faq-btn{
+  width:100%; text-align:left; padding:10px 14px; margin:6px 0;
+  background:var(--surface-2); border:1px solid var(--border); border-radius:10px;
+  color:var(--text); font-size:13.5px; cursor:pointer; transition:all .2s;
+}
+.faq-btn:hover{
+  background:rgba(91,63,224,0.12); border-color:var(--primary-2);
+  padding-left:18px;
+}
+</style>
+
+<style>
+:root{
+  --bg:#121524; --bg-alt:#181C2E; --surface:#1E2338; --surface-2:#252B42;
+  --border:rgba(148, 163, 184, 0.18);
+  --text:#E2E8F0; --text-dim:#94A3B8;
+  --primary:#6366F1; --primary-2:#818CF8; --cyan:#38BDF8;
+  --fact:#34D399; --hypo:#FBBF24; --opin:#C084FC; --refl:#60A5FA;
+  --radius:16px;
+  --shadow: 0 12px 40px -15px rgba(99, 102, 241, 0.35);
+}
+[data-theme="light"]{
+  --bg:#F8FAFC; --bg-alt:#FFFFFF; --surface:#FFFFFF; --surface-2:#F1F5F9;
+  --border:rgba(148, 163, 184, 0.25);
+  --text:#1E293B; --text-dim:#64748B;
+  --shadow: 0 12px 35px -15px rgba(99, 102, 241, 0.2);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:radial-gradient(ellipse 70% 45% at 50% -8%, rgba(99, 102, 241, 0.18), transparent),
+              radial-gradient(ellipse 55% 35% at 85% 5%, rgba(56, 189, 248, 0.08), transparent),
+              var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  transition:background .4s ease, color .4s ease;
+  line-height:1.6;
+}
+h1,h2,h3,h4,.display{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.02em;}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer;}
+::selection{background:var(--primary-2); color:#fff;}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--cyan); outline-offset:2px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+/* ---------- Layout shell ---------- */
+.shell{display:flex; min-height:100vh;}
+.sidebar{
+  width:250px; flex-shrink:0; background:var(--bg-alt); border-right:1px solid var(--border);
+  padding:24px 16px; position:sticky; top:0; height:100vh; overflow-y:auto; z-index:40;
+
+ 
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-2) var(--surface-2);
+  scroll-behavior: smooth;
+}
+
+
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-track{
+  background: var(--surface-2);
+  border-radius: 99px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  border-radius: 99px;
+  transition: background 0.2s ease;
+}
+.sidebar::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(180deg, var(--primary-2), var(--primary));
+}
+/* === SCROLL SIDEBAR === */
+.sidebar{
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-2) var(--surface-2);
+  scroll-behavior: smooth;
+}
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-track{
+  background: var(--surface-2);
+  border-radius: 99px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  border-radius: 99px;
+  transition: background 0.2s ease;
+}
+.sidebar::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(180deg, var(--primary-2), var(--primary));
+}
+
+/* ✅ TARUH BLOK SCROLL CHAT DI SINI */
+.chat-body{
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-2) var(--surface-2);
+  scroll-behavior: smooth;
+}
+.chat-body::-webkit-scrollbar{
+  width: 5px;
+}
+.chat-body::-webkit-scrollbar-track{
+  background: var(--surface-2);
+  border-radius: 99px;
+}
+.chat-body::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  border-radius: 99px;
+  transition: background 0.2s ease;
+}
+.chat-body::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(180deg, var(--primary-2), var(--primary));
+}
+.brand{display:flex; align-items:center; gap:10px; padding:4px 8px 22px; border-bottom:1px solid var(--border); margin-bottom:16px;}
+.brand-mark{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg, var(--primary), var(--cyan));
+  display:flex;align-items:center;justify-content:center; font-family:'Space Grotesk'; font-weight:700; color:#fff; flex-shrink:0;
+}
+.brand-text .t1{font-family:'Space Grotesk'; font-weight:700; font-size:15px; line-height:1.15;}
+.brand-text .t2{font-size:11px; color:var(--text-dim); letter-spacing:0.06em; text-transform:uppercase;}
+
+.navlist{display:flex; flex-direction:column; gap:2px;}
+.navlink{
+  display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px;
+  font-size:14px; color:var(--text-dim); font-weight:500; transition:background .2s, color .2s;
+}
+.navlink svg{width:17px;height:17px; flex-shrink:0;}
+.navlink:hover{background:var(--surface-2); color:var(--text);}
+.navlink.active{background:linear-gradient(90deg, rgba(91,63,224,0.22), transparent); color:var(--text); box-shadow:inset 3px 0 0 var(--primary-2);}
+
+.sidebar-foot{margin-top:20px; padding-top:16px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:10px;}
+.theme-toggle{
+  display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 12px;
+  background:var(--surface-2); border:1px solid var(--border); border-radius:10px; font-size:13px; color:var(--text);
+}
+.progress-mini{padding:10px 12px; background:var(--surface-2); border-radius:10px; border:1px solid var(--border);}
+.progress-mini .lbl{font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;}
+.progress-bar{height:6px; border-radius:99px; background:rgba(255,255,255,0.08); overflow:hidden;}
+[data-theme="light"] .progress-bar{background:rgba(0,0,0,0.06);}
+.progress-fill{height:100%; background:linear-gradient(90deg, var(--primary), var(--cyan)); border-radius:99px; transition:width .5s ease;}
+
+.main{flex:1; min-width:0;}
+.topbar{
+  position:sticky; top:0; z-index:30; display:flex; align-items:center; gap:14px;
+  padding:14px 28px; background:color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.menu-btn{display:none; background:none; border:none; color:var(--text);}
+.searchbox{
+  flex:1; max-width:420px; display:flex; align-items:center; gap:8px; padding:9px 14px;
+  background:var(--surface); border:1px solid var(--border); border-radius:99px; color:var(--text-dim); font-size:13px;
+}
+.searchbox input{background:none; border:none; outline:none; color:var(--text); font-size:13px; width:100%;}
+.searchbox svg{width:15px;height:15px; flex-shrink:0;}
+.topbar-title{font-family:'Space Grotesk'; font-weight:600; font-size:15px; margin-right:auto;}
+
+.page{padding:32px 28px 80px; max-width:980px;}
+.page.wide{max-width:1120px;}
+.hidden{display:none !important;}
+
+/* ---------- Reusable ---------- */
+.eyebrow{font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--primary-2); font-weight:600; margin-bottom:10px; display:block;}
+.section-title{font-size:28px; margin-bottom:8px;}
+.section-sub{color:var(--text-dim); font-size:15px; max-width:640px; margin-bottom:28px;}
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px;
+}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:800px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:99px; border:none;
+  background:linear-gradient(135deg, var(--primary), var(--primary-2)); color:#fff; font-weight:600; font-size:14px;
+  box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn.ghost{background:none; border:1px solid var(--border); color:var(--text); box-shadow:none;}
+.btn.sm{padding:7px 14px; font-size:12.5px;}
+
+/* Epistemic labels — signature element */
+.label{
+  display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; padding:4px 10px 4px 8px;
+  border-radius:99px; font-family:'JetBrains Mono',monospace; letter-spacing:0.01em; white-space:nowrap;
+}
+.label::before{content:''; width:7px; height:7px; border-radius:50%; flex-shrink:0;}
+.label.fakta{background:rgba(34,197,94,0.12); color:var(--fact);} .label.fakta::before{background:var(--fact);}
+.label.hipotesis{background:rgba(245,158,11,0.12); color:var(--hypo);} .label.hipotesis::before{background:var(--hypo);}
+.label.opini{background:rgba(232,121,249,0.12); color:var(--opin);} .label.opini::before{background:var(--opin);}
+.label.refleksi{background:rgba(34,211,238,0.12); color:var(--refl);} .label.refleksi::before{background:var(--refl);}
+
+.pill{font-size:12px; padding:5px 12px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); color:var(--text-dim);}
+
+/* fade-in */
+.fade-up{animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+
+/* ---------- Home ---------- */
+.hero{
+  border-radius:24px; padding:48px 40px; position:relative; overflow:hidden; margin-bottom:36px;
+  background:linear-gradient(135deg, rgba(91,63,224,0.35), rgba(34,211,238,0.12));
+  border:1px solid var(--border);
+}
+.hero::after{
+  content:''; position:absolute; inset:0; background:
+   radial-gradient(circle at 85% 20%, rgba(34,211,238,0.35), transparent 45%);
+  pointer-events:none;
+}
+.hero h1{font-size:clamp(30px,4vw,44px); max-width:680px; margin-bottom:14px; position:relative;}
+.hero p{color:var(--text-dim); max-width:560px; font-size:15.5px; margin-bottom:24px; position:relative;}
+.hero .actions{display:flex; gap:12px; flex-wrap:wrap; position:relative;}
+
+.quote-strip{
+  border-left:3px solid var(--primary-2); padding:16px 20px; background:var(--surface); border-radius:0 12px 12px 0;
+  font-family:'Space Grotesk'; font-size:17px; margin:28px 0; transition:opacity .3s;
+}
+.quote-strip cite{display:block; font-family:'Inter'; font-size:12px; color:var(--text-dim); margin-top:8px; font-style:normal;}
+
+.roadmap{display:flex; flex-direction:column; gap:0; margin-top:8px;}
+.rstep{display:flex; gap:16px; position:relative; padding-bottom:26px;}
+.rstep:last-child{padding-bottom:0;}
+.rstep::before{content:''; position:absolute; left:15px; top:34px; bottom:0; width:1px; background:var(--border);}
+.rstep:last-child::before{display:none;}
+.rnum{
+  width:32px; height:32px; border-radius:50%; background:var(--surface-2); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono'; font-size:12px; flex-shrink:0; color:var(--primary-2); font-weight:600;
+}
+.rstep h4{font-size:15px; margin-bottom:4px;}
+.rstep p{font-size:13.5px; color:var(--text-dim);}
+
+/* ---------- Warning banner ---------- */
+.warn{
+  display:flex; gap:14px; background:rgba(245,158,11,0.09); border:1px solid rgba(245,158,11,0.3);
+  border-radius:14px; padding:16px 18px; margin:20px 0 28px;
+}
+.warn svg{width:20px;height:20px; color:var(--hypo); flex-shrink:0; margin-top:2px;}
+.warn strong{display:block; margin-bottom:3px; font-size:14px;}
+.warn p{font-size:13.5px; color:var(--text-dim);}
+
+/* ---------- Chapters (accordion, no spoiler) ---------- */
+.chapter-list{display:flex; flex-direction:column; gap:10px;}
+.chapter-item{border:1px solid var(--border); border-radius:14px; background:var(--surface); overflow:hidden;}
+.chapter-head{
+  display:flex; align-items:center; gap:14px; padding:16px 18px; width:100%; background:none; border:none; color:var(--text); text-align:left;
+}
+.chapter-idx{font-family:'JetBrains Mono'; font-size:12px; color:var(--primary-2); width:26px; flex-shrink:0;}
+.chapter-head .ct{flex:1;}
+.chapter-head .ct h4{font-size:15px;}
+.chapter-head .ct span{font-size:12.5px; color:var(--text-dim);}
+.chevron{transition:transform .25s ease; flex-shrink:0; color:var(--text-dim);}
+.chapter-item.open .chevron{transform:rotate(180deg);}
+.chapter-body{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+.chapter-item.open .chapter-body{max-height:1400px;}
+.chapter-body-inner{padding:0 18px 22px 58px; display:flex; flex-direction:column; gap:16px;}
+.chapter-body-inner h5{font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:8px;}
+.chapter-body-inner ul{padding-left:18px; font-size:14px; display:flex; flex-direction:column; gap:5px;}
+.term-tag{display:inline-block; font-size:12px; padding:3px 10px; margin:0 6px 6px 0; background:var(--surface-2); border-radius:99px; border:1px solid var(--border);}
+.critical-note{font-size:13.5px; color:var(--text-dim); background:var(--surface-2); padding:12px 14px; border-radius:10px;}
+
+/* ---------- Evolution timeline ---------- */
+.timeline{position:relative; padding-left:28px; margin-top:20px;}
+.timeline::before{content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--primary), var(--cyan));}
+.tl-item{position:relative; padding-bottom:26px; cursor:pointer;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{
+  position:absolute; left:-28px; top:2px; width:14px; height:14px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--primary-2);
+}
+.tl-item.open .tl-dot{background:var(--cyan); border-color:var(--cyan);}
+.tl-card{border:1px solid var(--border); background:var(--surface); border-radius:14px; padding:16px 18px;}
+.tl-head{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;}
+.tl-head h4{font-size:16px;}
+.tl-head .lat{font-style:italic; color:var(--text-dim); font-size:13px; font-weight:400;}
+.tl-time{font-family:'JetBrains Mono'; font-size:12px; color:var(--cyan); background:rgba(34,211,238,0.1); padding:3px 10px; border-radius:99px;}
+.tl-detail{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+.tl-item.open .tl-detail{max-height:400px; margin-top:12px;}
+.tl-detail p{font-size:13.5px; color:var(--text-dim);}
+
+/* ---------- Homo Deva perspectives ---------- */
+.persp-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+.persp-tab{padding:9px 16px; border-radius:99px; border:1px solid var(--border); background:var(--surface); font-size:13px; color:var(--text-dim); font-weight:500;}
+.persp-tab.active{background:var(--primary); color:#fff; border-color:transparent;}
+.persp-panel{display:none;}
+.persp-panel.active{display:block;}
+
+/* ---------- Comparison table ---------- */
+.filters{display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;}
+.filter-chip{padding:7px 14px; border-radius:99px; border:1px solid var(--border); background:var(--surface); font-size:12.5px; color:var(--text-dim);}
+.filter-chip.active{background:var(--surface-2); color:var(--text); border-color:var(--primary-2);}
+.comp-table{width:100%; border-collapse:separate; border-spacing:0 10px;}
+.comp-table thead th{text-align:left; font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-dim); padding:0 16px 6px;}
+.comp-table tbody tr{background:var(--surface); }
+.comp-table tbody td{padding:14px 16px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); font-size:13.5px; vertical-align:top;}
+.comp-table tbody td:first-child{border-left:1px solid var(--border); border-radius:12px 0 0 12px; font-weight:600;}
+.comp-table tbody td:last-child{border-right:1px solid var(--border); border-radius:0 12px 12px 0; color:var(--text-dim);}
+.support{display:flex; align-items:center; gap:7px; font-size:13px; font-weight:600;}
+.support .dot{width:9px;height:9px;border-radius:50%;}
+.support.green .dot{background:var(--fact);} .support.green{color:var(--fact);}
+.support.yellow .dot{background:var(--hypo);} .support.yellow{color:var(--hypo);}
+.support.red .dot{background:#F87171;} .support.red{color:#F87171;}
+@media(max-width:760px){.comp-table thead{display:none;} .comp-table, .comp-table tbody, .comp-table tr, .comp-table td{display:block; width:100%;} .comp-table tbody tr{border-radius:12px; padding:6px 4px; margin-bottom:2px;} .comp-table tbody td{border:none !important; padding:6px 12px;} .comp-table tbody td:before{content:attr(data-label); display:block; font-size:10.5px; text-transform:uppercase; color:var(--text-dim); margin-bottom:2px;}}
+
+/* ---------- Glossary ---------- */
+.gloss-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+@media(max-width:760px){.gloss-grid{grid-template-columns:1fr;}}
+.gloss-item{border:1px solid var(--border); background:var(--surface); border-radius:14px; padding:16px 18px;}
+.gloss-item h4{font-size:14.5px; margin-bottom:5px;}
+.gloss-item p{font-size:13.5px; color:var(--text-dim);}
+
+/* ---------- Quiz ---------- */
+.quiz-tabs{display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;}
+.qopt{
+  display:block; width:100%; text-align:left; padding:12px 16px; border:1px solid var(--border); background:var(--surface);
+  border-radius:12px; margin-bottom:9px; font-size:14px; color:var(--text); transition:border-color .2s, background .2s;
+}
+.qopt:hover{border-color:var(--primary-2);}
+.qopt.correct{border-color:var(--fact); background:rgba(34,197,94,0.1);}
+.qopt.wrong{border-color:#F87171; background:rgba(248,113,113,0.1);}
+.qopt[disabled]{cursor:default;}
+.flashcard{
+  perspective:1200px; height:180px; margin-bottom:16px;
+}
+.flashcard-inner{
+  position:relative; width:100%; height:100%; transition:transform .5s; transform-style:preserve-3d; cursor:pointer;
+}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.fc-face{
+  position:absolute; inset:0; backface-visibility:hidden; border-radius:14px; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center; text-align:center; padding:20px; font-size:15px;
+  background:var(--surface);
+}
+.fc-back{transform:rotateY(180deg); background:linear-gradient(135deg, rgba(91,63,224,0.25), rgba(34,211,238,0.1)); font-size:14px; color:var(--text-dim);}
+.score-badge{font-family:'JetBrains Mono'; font-size:13px; padding:6px 14px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border);}
+
+/* ---------- Notes ---------- */
+textarea, input[type=text]{
+  width:100%; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; color:var(--text);
+  padding:11px 14px; font-family:'Inter'; font-size:14px; resize:vertical;
+}
+.note-card{border:1px solid var(--border); background:var(--surface); border-radius:12px; padding:14px 16px; margin-bottom:10px;}
+.note-card .meta{display:flex; justify-content:space-between; font-size:11.5px; color:var(--text-dim); margin-bottom:6px;}
+.note-card p{font-size:13.5px;}
+.icon-btn{background:none; border:none; color:var(--text-dim); padding:2px;}
+.icon-btn:hover{color:#F87171;}
+.bookmark-row{display:flex; align-items:center; justify-content:space-between; padding:10px 4px; border-bottom:1px solid var(--border); font-size:13.5px;}
+.bookmark-row:last-child{border-bottom:none;}
+
+/* ---------- Discussion ---------- */
+.post{border:1px solid var(--border); background:var(--surface); border-radius:14px; padding:16px 18px; margin-bottom:12px;}
+.post-head{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+.avatar{width:30px;height:30px;border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--cyan)); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff; flex-shrink:0;}
+.post-name{font-size:13.5px; font-weight:600;}
+.post-time{font-size:11.5px; color:var(--text-dim);}
+.vote-btn{display:inline-flex; align-items:center; gap:5px; font-size:12.5px; color:var(--text-dim); background:var(--surface-2); border:1px solid var(--border); border-radius:99px; padding:5px 12px; margin-top:8px;}
+.vote-btn.voted{color:var(--primary-2); border-color:var(--primary-2);}
+
+/* ---------- References ---------- */
+.ref-cat{margin-bottom:24px;}
+.ref-cat h4{font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--primary-2); margin-bottom:12px;}
+.ref-item{padding:12px 0; border-bottom:1px solid var(--border); font-size:14px;}
+.ref-item span{display:block; font-size:12.5px; color:var(--text-dim); margin-top:2px;}
+
+/* ---------- Chat widget ---------- */
+.chat-fab{
+  position:fixed; bottom:24px; right:24px; z-index:60; width:56px; height:56px; border-radius:50%;
+  background:linear-gradient(135deg, var(--primary), var(--cyan)); border:none; color:#fff; box-shadow:var(--shadow);
+  display:flex; align-items:center; justify-content:center;
+}
+.chat-panel{
+  position:fixed; bottom:92px; right:24px; z-index:60; width:340px; max-width:calc(100vw - 32px); height:440px;
+  background:var(--bg-alt); border:1px solid var(--border); border-radius:18px; display:flex; flex-direction:column;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,0.5); overflow:hidden; transform-origin:bottom right; transition:transform .2s, opacity .2s;
+}
+.chat-panel.hidden{transform:scale(0.9); opacity:0; pointer-events:none;}
+.chat-head{padding:14px 16px; border-bottom:1px solid var(--border); font-size:13.5px; font-weight:600; display:flex; justify-content:space-between; align-items:center;}
+.chat-body{flex:1; overflow-y:auto; padding:14px 16px; display:flex; flex-direction:column; gap:10px;}
+.chat-msg{font-size:13px; padding:9px 12px; border-radius:12px; max-width:88%; line-height:1.5;}
+.chat-msg.user{align-self:flex-end; background:var(--primary); color:#fff; border-bottom-right-radius:3px;}
+.chat-msg.ai{align-self:flex-start; background:var(--surface-2); border-bottom-left-radius:3px;}
+.chat-msg.sys{align-self:center; font-size:11.5px; color:var(--text-dim); text-align:center;}
+.chat-input{display:flex; gap:8px; padding:12px; border-top:1px solid var(--border);}
+.chat-input input{flex:1;}
+.chat-send{background:var(--primary); border:none; color:#fff; width:38px; height:38px; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center;}
+
+/* mobile */
+@media(max-width:900px){
+  .sidebar{position:fixed; left:0; top:0; transform:translateX(-100%); transition:transform .25s ease; box-shadow:0 0 0 100vmax rgba(0,0,0,0);}
+  .sidebar.open{transform:translateX(0); box-shadow:0 0 0 100vmax rgba(0,0,0,0.5);}
+  .menu-btn{display:flex;}
+  .page{padding:24px 16px 70px;}
+  .topbar{padding:12px 16px;}
+}
+footer.sitefoot{
+  padding:32px 24px;
+  color:var(--text-dim);
+  font-size:12.5px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  margin-top:24px;
+  background:var(--bg-alt);
+}
+</style>
+</head>
+<body data-theme="dark">
+
+<div class="shell">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">HD</div>
+      <div class="brand-text">
+        <div class="t1">Homo Deva</div>
+        <div class="t2">Learning Hub</div>
+      </div>
+    </div>
+   <nav class="navlist" id="navlist">
+  <a href="#" class="navlink" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>Beranda</a>
+  <a href="#" class="navlink" data-page="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Tentang Buku</a>
+  <a href="#" class="navlink" data-page="chapters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Ringkasan Bab</a>
+  <a href="#" class="navlink" data-page="evolution"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Evolusi Manusia</a>
+  <a href="#" class="navlink" data-page="homodeva"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Homo Deva</a>
+  <a href="#" class="navlink" data-page="comparison"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>Perbandingan</a>
+  <a href="#" class="navlink" data-page="glossary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5v13z"/><path d="M8 8h8M8 12h5"/></svg>Kamus Istilah</a>
+  <a href="#" class="navlink" data-page="quiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 .5c0 1.5-2 2-2 3.5"/><path d="M12 17h.01"/></svg>Kuis</a>
+  <a href="#" class="navlink" data-page="notes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>Catatan Pribadi</a>
+  <a href="#" class="navlink" data-page="discussion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Diskusi</a>
+  <a href="#" class="navlink" data-page="references"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Referensi</a>
+  <a href="#" class="navlink" data-page="sources"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Sumber & Keterbukaan</a>
+</nav>
+    <div class="sidebar-foot">
+      <div class="progress-mini">
+        <div class="lbl">Progres Belajar</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        <div style="font-size:11px; color:var(--text-dim); margin-top:6px;" id="progressLabel">0% modul dikunjungi</div>
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <span id="themeLabel">Mode Gelap</span>
+        <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <div class="topbar-title" id="topbarTitle">Beranda</div>
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Cari istilah, bab, atau konsep…" />
+      </div>
+    </div>
+
+    <!-- ============ HOME ============ -->
+    <section class="page" id="page-home">
+      <div class="hero fade-up">
+        <span class="eyebrow">Media Belajar Kritis</span>
+        <h1>Pahami "Homo Deva" tanpa berhenti berpikir kritis.</h1>
+        <p>Homo Deva Learning Hub bukan tempat untuk mempercayai buku Homo Deva sebagai fakta ilmiah. Ini ruang untuk membaca gagasannya, membedah klaimnya, dan mengujinya berdampingan dengan sains evolusi, filsafat, dan sejarah manusia.</p>
+        <div class="actions">
+          <a href="#" class="btn navlink" data-page="book">Mulai dari "Tentang Buku" →</a>
+          <a href="#" class="btn ghost navlink" data-page="evolution">Lihat Timeline Evolusi</a>
+        </div>
+      </div>
+
+      <div class="quote-strip fade-up" id="quoteStrip"></div>
+
+      <h2 class="section-title" style="margin-top:36px;">Peta Belajar</h2>
+      <p class="section-sub">Urutan yang disarankan agar konteks ilmiah terbentuk lebih dulu, sebelum menilai gagasan spekulatif dalam buku.</p>
+      <div class="roadmap card">
+        <div class="rstep"><div class="rnum">1</div><div><h4>Kenali bukunya secara netral</h4><p>Siapa penulis, apa tujuannya, dan genre apa yang dianutnya — sebelum menilai isinya.</p></div></div>
+        <div class="rstep"><div class="rnum">2</div><div><h4>Pahami evolusi manusia yang sesungguhnya</h4><p>Bangun fondasi dari catatan fosil dan konsensus ilmiah, dari hominin awal hingga Homo sapiens.</p></div></div>
+        <div class="rstep"><div class="rnum">3</div><div><h4>Baca ringkasan tiap bab tanpa spoiler</h4><p>Buka satu per satu, lengkap dengan pertanyaan refleksi dan catatan kritis.</p></div></div>
+        <div class="rstep"><div class="rnum">4</div><div><h4>Uji konsep "Homo Deva" dari 4 sudut pandang</h4><p>Pisahkan klaim penulis, sains, filsafat, dan interpretasimu sendiri.</p></div></div>
+        <div class="rstep"><div class="rnum">5</div><div><h4>Bandingkan & diskusikan</h4><p>Gunakan tabel bukti ilmiah, lalu uji pemahamanmu lewat kuis dan forum diskusi.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ============ BOOK ============ -->
+    <section class="page hidden" id="page-book">
+      <span class="eyebrow">Modul 01</span>
+      <h2 class="section-title">Tentang Buku</h2>
+      <p class="section-sub">Informasi berikut disusun senetral mungkin dari data penerbitan yang tersedia untuk umum, tanpa menilai kebenaran isinya.</p>
+
+      <div class="grid grid-2" style="margin-bottom:20px;">
+        <div class="card">
+          <h4 style="margin-bottom:10px;">Data Buku</h4>
+          <div style="font-size:13.5px; color:var(--text-dim); display:flex; flex-direction:column; gap:6px;">
+            <div><strong style="color:var(--text);">Judul:</strong> Homo Deva: Tahap Lanjut Evolusi Umat Manusia untuk Memenangkan Masa Depan</div>
+            <div><strong style="color:var(--text);">Penulis:</strong> Mary Belknap, Ph.D.</div>
+            <div><strong style="color:var(--text);">Penerjemah:</strong> Adi Toha</div>
+            <div><strong style="color:var(--text);">Penerbit:</strong> Alvabet (edisi Indonesia, 2019)</div>
+            <div><strong style="color:var(--text);">Genre:</strong> Non-fiksi populer / spiritualitas &amp; perkembangan manusia</div>
+          </div>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom:10px;">Siapa Penulisnya?</h4>
+          <p style="font-size:13.5px; color:var(--text-dim);">Mary Belknap berlatar belakang psikologi pendidikan dan hukum, bukan biologi evolusi atau antropologi. Ia meneliti "potensi manusia" sejak 1973 dan mendirikan Lifethread Institute. Homo Deva adalah buku pertamanya. <span class="label opini" style="margin-top:6px;">Konteks, bukan penilaian</span></p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:20px;">
+        <h4 style="margin-bottom:10px;">Tujuan Buku</h4>
+        <p style="font-size:14px; color:var(--text-dim);">Buku ini mengajukan gagasan bahwa manusia sedang bertransisi menuju tahap perkembangan baru yang disebut "Homo Deva", melalui tiga fase: <strong style="color:var(--text);">intuisi, inovasi, dan identitas</strong>. Penulis menyajikannya sebagai pengamatan atas perubahan budaya dan kesadaran manusia modern, dipadukan dengan bahasa evolusi biologis.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:20px;">
+        <h4 style="margin-bottom:12px;">Tema-Tema Utama</h4>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="term-tag">Transisi kesadaran manusia</span>
+          <span class="term-tag">Integrasi intuisi &amp; kecerdasan</span>
+          <span class="term-tag">Evolusi budaya vs biologis</span>
+          <span class="term-tag">Spiritualitas &amp; sains</span>
+          <span class="term-tag">Masa depan spesies manusia</span>
+        </div>
+      </div>
+
+      <div class="warn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        <div>
+          <strong>Peringatan Pembacaan Kritis</strong>
+          <p>Buku ini banyak memuat unsur filsafat, spiritualitas, dan spekulasi pribadi penulis — bukan makalah ilmiah yang ditinjau sejawat (peer-reviewed). "Evolusi" dalam buku sering dipakai secara metaforis untuk perubahan budaya/kesadaran, berbeda dari makna evolusi biologis dalam sains. Gunakan label <span class="label fakta" style="vertical-align:middle;">Fakta</span> <span class="label hipotesis" style="vertical-align:middle;">Hipotesis</span> <span class="label opini" style="vertical-align:middle;">Opini</span> di seluruh situs ini untuk membedakan jenis klaim.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHAPTERS ============ -->
+    <section class="page hidden" id="page-chapters">
+      <span class="eyebrow">Modul 02 · Tanpa Spoiler</span>
+      <h2 class="section-title">Ringkasan per Bagian</h2>
+      <p class="section-sub">Konten tersembunyi sampai kamu memilih sendiri bagian mana yang ingin dibuka — supaya kamu membaca dengan sengaja, bukan sekadar menggulir.</p>
+      <div class="chapter-list" id="chapterList"></div>
+    </section>
+
+    <!-- ============ EVOLUTION ============ -->
+    <section class="page hidden" id="page-evolution">
+      <span class="eyebrow">Modul 03 · Fondasi Ilmiah</span>
+      <h2 class="section-title">Evolusi Manusia</h2>
+      <p class="section-sub">Timeline berdasarkan konsensus paleoantropologi arus utama. Rentang waktu adalah estimasi dari catatan fosil dan terus diperbarui seiring temuan baru — bukan angka final.</p>
+      <div class="timeline" id="timelineList"></div>
+    </section>
+
+    <!-- ============ HOMO DEVA ============ -->
+    <section class="page hidden" id="page-homodeva">
+      <span class="eyebrow">Modul 04 · Inti Perdebatan</span>
+      <h2 class="section-title">Konsep "Homo Deva"</h2>
+      <p class="section-sub">"Homo Deva" adalah istilah yang diciptakan penulis buku ini — bukan takson ilmiah yang diakui dalam biologi evolusi maupun antropologi. Berikut cara memilah gagasan ini dari empat sudut pandang berbeda.</p>
+      <div class="persp-tabs" id="perspTabs"></div>
+      <div id="perspPanels"></div>
+    </section>
+
+    <!-- ============ COMPARISON ============ -->
+    <section class="page hidden" id="page-comparison">
+      <span class="eyebrow">Modul 05</span>
+      <h2 class="section-title">Klaim vs Bukti Ilmiah</h2>
+      <p class="section-sub">Tabel ini membandingkan klaim yang lazim muncul dalam gagasan Homo Deva dengan posisi sains saat ini.</p>
+      <div class="filters" id="compFilters"></div>
+      <div style="overflow-x:auto;">
+        <table class="comp-table">
+          <thead><tr><th>Klaim dalam Buku</th><th>Bukti Ilmiah Saat Ini</th><th>Dukungan</th><th>Catatan</th></tr></thead>
+          <tbody id="compBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ GLOSSARY ============ -->
+    <section class="page hidden" id="page-glossary">
+      <span class="eyebrow">Modul 06</span>
+      <h2 class="section-title">Kamus Istilah</h2>
+      <p class="section-sub">Gunakan kotak pencarian di atas untuk menyaring istilah.</p>
+      <div class="gloss-grid" id="glossGrid"></div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="page hidden" id="page-quiz">
+      <span class="eyebrow">Modul 07 · Uji Pemahaman</span>
+      <h2 class="section-title">Kuis</h2>
+      <div class="quiz-tabs" id="quizTabs"></div>
+      <div id="quizContent"></div>
+    </section>
+
+    <!-- ============ NOTES ============ -->
+    <section class="page hidden" id="page-notes">
+      <span class="eyebrow">Modul 08 · Privat</span>
+      <h2 class="section-title">Catatan Pribadi</h2>
+      <p class="section-sub">Tersimpan otomatis di akunmu. Hanya kamu yang bisa melihat catatan ini.</p>
+      <div class="grid grid-2">
+        <div>
+          <div class="card" style="margin-bottom:16px;">
+            <h4 style="margin-bottom:10px; font-size:14px;">Jurnal Pembelajaran Baru</h4>
+            <input type="text" id="noteTitle" placeholder="Judul singkat…" style="margin-bottom:10px;" />
+            <textarea id="noteBody" rows="4" placeholder="Tulis ringkasan, kutipan favorit, atau refleksimu…"></textarea>
+            <button class="btn sm" id="saveNoteBtn" style="margin-top:12px;">Simpan Catatan</button>
+          </div>
+          <div id="notesList"></div>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom:6px; font-size:14px;">Halaman/Bab Favorit</h4>
+          <p style="font-size:12.5px; color:var(--text-dim); margin-bottom:10px;">Tandai bab yang ingin kamu tinjau ulang.</p>
+          <div id="bookmarkList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DISCUSSION ============ -->
+<section class="page" id="page-discussion">
+  <span class="eyebrow">Modul 09 · Forum Bersama</span>
+  <h2 class="section-title">Diskusi</h2>
+  <p class="section-sub">Ruang tanya-jawab. Postingan di sini bersifat bersama (dapat dilihat pengguna lain) — jangan bagikan data pribadi.</p>
+  
+  <div class="card" style="margin-bottom:20px;">
+    <input type="text" id="postName" placeholder="Nama panggilanmu (opsional)" style="margin-bottom:10px; width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); background:var(--bg-alt); color:var(--text);" />
+    <textarea id="postBody" rows="3" placeholder="Tulis pertanyaan atau pendapatmu…" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); background:var(--bg-alt); color:var(--text); resize:vertical;"></textarea>
+    <button class="btn sm" id="postBtn" style="margin-top:10px;">Kirim ke Forum</button>
+  </div>
+
+  <div id="postsList">
+    <p style="color:var(--text-dim); font-style:italic;">Belum ada diskusi. Jadilah yang pertama berbagi!</p>
+  </div>
+</section>
+
+    <!-- ============ REFERENCES ============ -->
+    <section class="page hidden" id="page-references">
+      <span class="eyebrow">Modul 10</span>
+      <h2 class="section-title">Referensi</h2>
+      <p class="section-sub">Sumber untuk memperdalam dan menguji gagasan di situs ini secara mandiri.</p>
+      <div id="refContent"></div>
+    </section>
+
+    <!-- ============ SUMBER & KETERBUKAAN ============ -->
+<section class="page" id="page-sources">
+  <span class="eyebrow">Informasi Karya</span>
+  <h2 class="section-title">Sumber & Keterbukaan</h2>
+  <p class="section-sub">Pernyataan mengenai asal-usul penyusunan situs ini secara jujur dan terbuka.</p>
+
+  <div class="card" style="margin-bottom:16px;">
+    <h3 style="font-family:'Space Grotesk'; color:var(--primary-2); margin-bottom:12px;">📌 Pernyataan Penyusun</h3>
+    <p style="color:var(--text); line-height:1.7;">Seluruh isi materi, catatan, pandangan, dan perbandingan yang ada di dalam situs ini adalah hasil pemikiran, pengamatan, dan rangkuman pribadi penyusun.</p>
+    <p style="color:var(--text); line-height:1.7; margin-top:10px;">Situs ini <strong>tidak menggunakan data resmi, dokumen terbitan berhak cipta, maupun sumber rujukan khusus</strong> dari pihak manapun dalam penyusunannya. Segala bentuk analisis dan penjelasan disusun berdasarkan pemahaman mandiri terhadap topik yang dibahas.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <h3 style="font-family:'Space Grotesk'; color:var(--primary-2); margin-bottom:12px;">⚠️ Maksud & Tujuan</h3>
+    <ul style="color:var(--text); line-height:1.8; padding-left:18px;">
+      <li>Sebagai wadah belajar dan melatih berpikir kritis secara mandiri.</li>
+      <li>Memisahkan apa yang menjadi fakta umum, hipotesis, dan pandangan pribadi.</li>
+      <li>Tidak bertujuan menggantikan buku asli, karya ilmiah, atau sumber resmi lainnya.</li>
+      <li>Setiap orang yang mengunjungi situs ini berhak mengetahui asal-usul informasi yang disajikan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 style="font-family:'Space Grotesk'; color:var(--primary-2); margin-bottom:12px;">💡 Catatan Penting</h3>
+    <p style="color:var(--text); line-height:1.7;">Jika ada kesamaan gagasan atau kalimat dengan karya lain, hal itu murni kebetulan dan bukan bentuk peniruan atau pengambilan tanpa izin.</p>
+    <p style="color:var(--text); line-height:1.7; margin-top:10px;">Silakan merujuk kembali ke sumber asli buku atau penelitian resmi untuk pemahaman yang lebih lengkap dan terverifikasi.</p>
+  </div>
+</section>
+
+    <footer class="sitefoot">
+  <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+    <span style="font-family:'Space Grotesk'; font-weight:600; font-size:14px; color:var(--text);">Homo Deva Learning Hub</span>
+    <span style="color:var(--border);">|</span>
+    <a href="https://www.instagram.com/raywisp_" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color:var(--primary-2); font-weight:500; transition:color .2s;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="4" y="4" width="16" height="16" rx="4" ry="4"></rect>
+        <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+        <path d="M17.5 6.5l.01.01"></path>
+      </svg>
+      @raywisp_
+    </a>
+  </div>
+  <p style="font-size:12px; color:var(--text-dim); line-height:1.5;">
+    Dibuat untuk belajar berpikir kritis, bukan untuk membenarkan atau menyalahkan satu buku.<br>
+    Selalu bedakan fakta, hipotesis, opini, dan refleksi.
+  </p>
+</footer>
+  </div>
+</div>
+
+<!-- Chat widget -->
+<button class="chat-fab" id="chatFab" aria-label="Buka AI Chat">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+</button>
+<div class="chat-panel hidden" id="chatPanel">
+  <div class="chat-head"><span>AI Penjelas Konsep (netral)</span><button class="icon-btn" id="chatClose">✕</button></div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg sys">Tanyakan istilah atau konsep apa pun. AI akan selalu memisahkan fakta ilmiah, hipotesis, opini, dan refleksi filosofis.</div>
+  </div>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const QUOTES = [
+  {t:"“Ekstraordinari klaim membutuhkan bukti yang ekstraordinari.”", c:"— Carl Sagan, prinsip skeptisisme ilmiah"},
+  {t:"“Tugas kita bukan mempercayai, melainkan menguji.”", c:"— Prinsip metode ilmiah"},
+  {t:"“Semua model itu keliru, tapi sebagian berguna.”", c:"— George Box, tentang batas teori"},
+  {t:"“Filsafat dimulai ketika kita berani bertanya, bukan ketika kita berhenti bertanya.”", c:"— Semangat literasi kritis"}
+];
+
+const CHAPTERS = [
+  {t:"Prolog — Klaim Awal Buku", tag:"Pengantar",
+   ringkasan:"Bagian pembuka mengajukan premis bahwa era Homo sapiens sedang berakhir dan sebuah tahap baru sedang muncul.",
+   ide:["Manusia modern dianggap menghadapi 'ambang evolusi' baru","Perubahan digambarkan sebagai proses alami yang tak terhindarkan","Buku memosisikan diri sebagai peta bagi transisi tersebut"],
+   istilah:["Ambang evolusi","Transisi kesadaran"],
+   refleksi:["Apa bedanya 'evolusi budaya' dan 'evolusi biologis' yang dimaksud di bagian ini?","Bukti apa yang diajukan penulis untuk klaim bahwa era baru 'sedang berlangsung'?"],
+   catatan:"<span class='label opini'>Opini</span> Klaim bahwa 'budaya Homo sapiens telah berakhir' adalah pernyataan retoris penulis, bukan kesimpulan yang didukung data biologi evolusi — spesies Homo sapiens secara taksonomis tidak berubah."},
+  {t:"Fase Satu — Intuisi", tag:"Bagian 1",
+   ringkasan:"Penulis membahas intuisi sebagai kapasitas manusia yang dianggap mulai bangkit kembali di era modern.",
+   ide:["Intuisi diposisikan sejajar dengan kecerdasan rasional","Pengalaman subjektif dijadikan bukti pendukung utama","Dihubungkan dengan istilah 'kesadaran yang lebih tinggi'"],
+   istilah:["Intuisi","Kesadaran"],
+   refleksi:["Bisakah pengalaman subjektif dijadikan bukti untuk klaim tentang perubahan spesies?","Bagaimana psikologi kognitif modern memandang 'intuisi' dibanding penggambaran di bab ini?"],
+   catatan:"<span class='label refleksi'>Refleksi</span> Menarik untuk membandingkan gagasan ini dengan penelitian psikologi tentang 'thinking fast and slow' — namun penulis tidak mengutip literatur psikologi kognitif secara sistematis."},
+  {t:"Fase Dua — Inovasi", tag:"Bagian 2",
+   ringkasan:"Membahas kreativitas dan inovasi teknologi/sosial sebagai penanda tahap perkembangan manusia berikutnya.",
+   ide:["Inovasi budaya disamakan dengan tekanan seleksi evolusioner","Contoh perubahan sosial abad ke-20–21 dipakai sebagai ilustrasi","Nada optimistis terhadap potensi manusia"],
+   istilah:["Inovasi","Tekanan seleksi (dipakai secara metaforis)"],
+   refleksi:["Apakah perubahan budaya yang cepat sama dengan perubahan evolusioner dalam pengertian biologis?","Contoh apa yang paling meyakinkan, dan apakah itu representatif secara global?"],
+   catatan:"<span class='label hipotesis'>Hipotesis</span> Penyamaan 'inovasi sosial' dengan 'tekanan seleksi' adalah analogi, bukan mekanisme evolusi yang teruji — layak diuji lebih lanjut, bukan diterima begitu saja."},
+  {t:"Fase Tiga — Identitas", tag:"Bagian 3",
+   ringkasan:"Bagian ini membahas pembentukan identitas baru manusia sebagai puncak dari proses intuisi dan inovasi sebelumnya.",
+   ide:["Identitas kolektif manusia dianggap bertransformasi","Istilah 'Homo Deva' diperkenalkan sebagai puncak tahap ini","Nuansa spiritual semakin kuat di bagian ini"],
+   istilah:["Identitas kolektif","Homo Deva"],
+   refleksi:["Apakah 'Homo Deva' merujuk pada spesies baru secara biologis, atau metafora budaya?","Kriteria apa yang dipakai penulis untuk menyatakan identitas manusia telah berubah?"],
+   catatan:"<span class='label opini'>Opini</span> Istilah 'Homo Deva' bukan nomenklatur ilmiah (tidak mengikuti tata nama biologi/taksonomi) — ini istilah ciptaan penulis untuk tujuan naratif."},
+  {t:"Penutup — Peta Menuju Masa Depan", tag:"Epilog",
+   ringkasan:"Penulis merangkum tiga fase dan mengajak pembaca merenungkan peran pribadi dalam transisi yang digambarkan.",
+   ide:["Ajakan reflektif kepada pembaca","Nada harapan terhadap masa depan manusia","Tidak menyertakan tinjauan pustaka ilmiah yang sistematis"],
+   istilah:["Peta agenda umat manusia"],
+   refleksi:["Bagian mana dari buku ini yang paling berguna sebagai renungan pribadi, terlepas dari validitas ilmiahnya?","Bagaimana kamu akan memisahkan inspirasi pribadi dari klaim faktual saat membaca ulang buku ini?"],
+   catatan:"<span class='label refleksi'>Refleksi</span> Buku semacam ini bisa bernilai sebagai perenungan filosofis-personal, selama pembaca tidak memperlakukan narasinya sebagai kesimpulan ilmiah tentang arah evolusi manusia."}
+];
+
+const EVOLUTION = [
+  {name:"Hominin Awal", lat:"Sahelanthropus, Orrorin, Ardipithecus", time:"±7–4.4 juta tahun lalu",
+   desc:"Kelompok paling awal dalam garis keturunan yang mengarah ke manusia, ditandai indikasi awal berjalan tegak (bipedalisme) meski otak masih berukuran mirip kera."},
+  {name:"Australopithecus", lat:"mis. Australopithecus afarensis ('Lucy')", time:"±4–2 juta tahun lalu",
+   desc:"Bipedal lebih mapan, kapasitas otak sekitar 400–500 cc, hidup di savana Afrika Timur dan Selatan. Fosil 'Lucy' (1974) adalah salah satu temuan paling terkenal."},
+  {name:"Homo habilis", lat:"'Manusia terampil'", time:"±2,4–1,4 juta tahun lalu",
+   desc:"Spesies Homo paling awal yang dikenal, dikaitkan dengan perkakas batu sederhana (industri Oldowan) dan kapasitas otak sekitar 550–680 cc."},
+  {name:"Homo erectus", lat:"'Manusia tegak'", time:"±1,9 juta – 110 ribu tahun lalu",
+   desc:"Spesies pertama yang bermigrasi keluar Afrika secara luas, mengendalikan api, dan memiliki proporsi tubuh mirip manusia modern; rentang hidup terpanjang di antara genus Homo."},
+  {name:"Homo neanderthalensis", lat:"Neanderthal", time:"±400 ribu – 40 ribu tahun lalu",
+   desc:"Hidup di Eropa dan Asia Barat, otak sebanding atau sedikit lebih besar dari manusia modern, membuat perkakas kompleks, dan diketahui berkawin silang dengan Homo sapiens awal."},
+  {name:"Homo sapiens", lat:"Manusia modern", time:"±300 ribu tahun lalu – sekarang",
+   desc:"Muncul di Afrika, ditandai kapasitas kognitif dan bahasa simbolik yang kompleks. Fosil tertua saat ini (Jebel Irhoud, Maroko) berusia sekitar 300 ribu tahun."}
+];
+
+const PERSPECTIVES = [
+  {key:"penulis", label:"Perspektif Penulis", tag:"opini", body:"Penulis menyajikan 'Homo Deva' sebagai tahap evolusi lanjutan manusia yang muncul dari integrasi intuisi, inovasi, dan identitas baru. Ini disampaikan dengan nada meyakinkan seolah merupakan proses yang sedang teramati secara nyata."},
+  {key:"ilmiah", label:"Perspektif Ilmiah", tag:"fakta", body:"Dalam biologi evolusi, spesiasi (munculnya spesies baru) memerlukan isolasi reproduktif dan perubahan genetik lintas generasi dalam skala waktu sangat panjang — bukan perubahan budaya atau kesadaran dalam rentang puluhan tahun. Tidak ada bukti genetik atau paleoantropologis bahwa Homo sapiens sedang bercabang menjadi spesies baru."},
+  {key:"filsafat", label:"Perspektif Filsafat", tag:"refleksi", body:"Secara filosofis, gagasan 'manusia yang menyempurnakan diri' punya akar panjang — dari mistisisme, transhumanisme, hingga filsafat proses. Pertanyaannya bukan 'benar atau salah' secara empiris, melainkan apa nilai dan implikasi etis dari narasi semacam ini bagi cara manusia memaknai dirinya."},
+  {key:"pembaca", label:"Perspektif Pembaca (Kamu)", tag:"refleksi", body:"Ruang ini untukmu. Setelah membaca ketiga sudut pandang di atas, perspektifmu sendiri tentang konsep ini bisa dicatat di halaman Catatan Pribadi. Kritis tidak berarti menolak semuanya — tapi memilah apa yang inspiratif dan apa yang faktual."}
+];
+
+const COMPARISON = [
+  {klaim:"Homo sapiens sedang bertransisi menjadi spesies 'Homo Deva'", bukti:"Tidak ada data genetik atau fosil yang menunjukkan spesiasi baru pada manusia dalam skala waktu historis.", level:"red", catatan:"Klaim naratif, bukan temuan biologi evolusi."},
+  {klaim:"Intuisi manusia modern 'berkembang' lebih tinggi dari generasi sebelumnya", bukti:"Kapasitas kognitif manusia relatif stabil secara biologis; yang berubah adalah lingkungan budaya dan cara berpikir dipelajari.", level:"yellow", catatan:"Perubahan budaya nyata, tapi bukan bukti perubahan biologis."},
+  {klaim:"Perubahan sosial yang cepat setara dengan tekanan seleksi evolusioner", bukti:"Evolusi budaya dan evolusi biologis adalah proses berbeda dengan mekanisme berbeda; analogi ini diperdebatkan dalam antropologi.", level:"yellow", catatan:"Ada literatur ko-evolusi gen-budaya, tapi klaim spesifik buku ini tidak dirujuk ke sana."},
+  {klaim:"Homo sapiens berasal dari nenek moyang hominin di Afrika", bukti:"Didukung luas oleh catatan fosil, arkeologi, dan genetika populasi (model 'Out of Africa').", level:"green", catatan:"Ini fakta yang relevan sebagai latar, bukan klaim khas buku Homo Deva."},
+  {klaim:"Manusia modern memiliki kesadaran diri dan bahasa simbolik kompleks", bukti:"Didukung oleh bukti arkeologis (seni, ritual penguburan) dan studi kognisi komparatif.", level:"green", catatan:"Fakta ilmiah umum, dipakai buku sebagai pijakan sebelum melompat ke klaim spekulatif."},
+  {klaim:"'Kesadaran yang lebih tinggi' dapat diukur sebagai tahap evolusi", bukti:"Tidak ada definisi operasional atau instrumen pengukuran ilmiah yang diterima luas untuk konsep ini.", level:"red", catatan:"Istilah filosofis/spiritual, sulit diuji secara empiris."}
+];
+
+const GLOSSARY = [
+  {t:"Evolusi", d:"Perubahan sifat terwariskan pada populasi makhluk hidup dari generasi ke generasi, didorong oleh mekanisme seperti seleksi alam, mutasi, migrasi, dan hanyutan genetik."},
+  {t:"Seleksi Alam", d:"Proses di mana individu dengan sifat yang lebih sesuai dengan lingkungannya cenderung bertahan hidup dan bereproduksi lebih banyak, sehingga sifat tersebut lebih umum pada generasi berikutnya."},
+  {t:"Adaptasi", d:"Sifat yang muncul melalui seleksi alam karena meningkatkan kemampuan bertahan hidup atau reproduksi suatu organisme di lingkungannya."},
+  {t:"Kesadaran", d:"Kemampuan mengalami dan menyadari diri serta lingkungan; topik lintas disiplin antara neurosains, psikologi, dan filsafat pikiran, dengan banyak definisi yang masih diperdebatkan."},
+  {t:"Spiritualitas", d:"Pengalaman atau keyakinan tentang makna, keterhubungan, atau transendensi yang melampaui hal material — ranah filosofis/personal, bukan klaim yang diuji secara ilmiah."},
+  {t:"Homo sapiens", d:"Nama spesies ilmiah manusia modern, muncul sekitar 300.000 tahun lalu di Afrika, ditandai kapasitas kognitif dan bahasa simbolik yang kompleks."},
+  {t:"Homo Deva", d:"Istilah yang diciptakan oleh penulis buku Homo Deva untuk menggambarkan tahap perkembangan manusia yang diproyeksikan — bukan nama takson biologi yang diakui secara ilmiah."},
+  {t:"Genetika", d:"Cabang biologi yang mempelajari gen, pewarisan sifat, dan variasi pada makhluk hidup — dasar mekanistik dari evolusi biologis."},
+  {t:"Antropologi", d:"Studi ilmiah tentang manusia, mencakup aspek biologis (paleoantropologi), budaya, linguistik, dan arkeologi."},
+  {t:"Spesiasi", d:"Proses terbentuknya spesies baru, biasanya melalui isolasi reproduktif suatu populasi dalam jangka waktu evolusioner yang panjang."},
+  {t:"Bipedalisme", d:"Kemampuan berjalan tegak dengan dua kaki, salah satu ciri kunci awal yang membedakan garis keturunan hominin dari kera besar lainnya."},
+  {t:"Paleoantropologi", d:"Cabang ilmu yang mempelajari evolusi manusia melalui fosil dan artefak dari masa lampau."},
+  {t:"Hipotesis", d:"Dugaan ilmiah yang dapat diuji, belum tentu terbukti benar, dan menjadi dasar untuk penelitian lebih lanjut."},
+  {t:"Fakta Ilmiah", d:"Pengamatan atau temuan yang telah diverifikasi berulang kali melalui metode ilmiah dan diterima luas oleh komunitas keilmuan terkait."}
+];
+
+const QUIZ_MCQ = [
+  {q:"Menurut sains evolusi, apa yang dibutuhkan agar sebuah spesies baru terbentuk?", opts:["Perubahan gaya hidup dalam satu generasi","Isolasi reproduktif dan perubahan genetik lintas banyak generasi","Kesepakatan sosial untuk menyebut diri berbeda","Peningkatan spiritualitas kolektif"], correct:1},
+  {q:"Istilah 'Homo Deva' dalam buku ini paling tepat digolongkan sebagai...", opts:["Nama takson resmi dalam biologi","Fakta yang telah diverifikasi paleoantropologi","Istilah naratif ciptaan penulis","Singkatan istilah medis"], correct:2},
+  {q:"Homo sapiens diperkirakan pertama kali muncul sekitar...", opts:["10.000 tahun lalu","300.000 tahun lalu","4 juta tahun lalu","1 juta tahun lalu"], correct:1},
+  {q:"Spesies Homo manakah yang pertama diketahui mengendalikan api dan bermigrasi luas keluar Afrika?", opts:["Homo habilis","Homo neanderthalensis","Homo erectus","Australopithecus afarensis"], correct:2},
+  {q:"Sikap paling tepat saat membaca klaim spekulatif dalam buku populer adalah...", opts:["Menerimanya karena ditulis dengan yakin","Menolaknya tanpa membaca","Memisahkan mana fakta, hipotesis, opini, dan refleksi","Mengabaikan sains sama sekali"], correct:2}
+];
+const QUIZ_TF = [
+  {q:"Neanderthal diketahui pernah berkawin silang dengan Homo sapiens awal.", a:true},
+  {q:"'Evolusi budaya' dan 'evolusi biologis' adalah mekanisme yang identik.", a:false},
+  {q:"Ada bukti genetik kuat bahwa manusia modern sedang berevolusi menjadi 'Homo Deva'.", a:false},
+  {q:"Australopithecus sudah berjalan tegak (bipedal).", a:true},
+  {q:"Semua isi buku populer tentang evolusi manusia otomatis merupakan konsensus ilmiah.", a:false}
+];
+const FLASHCARDS = [
+  {f:"Seleksi Alam", b:"Mekanisme evolusi di mana sifat yang menguntungkan bertahan hidup menjadi lebih umum pada generasi berikutnya."},
+  {f:"Homo erectus", b:"Spesies Homo pertama yang bermigrasi luas keluar Afrika dan mengendalikan api."},
+  {f:"Spesiasi", b:"Proses terbentuknya spesies baru lewat isolasi reproduktif dalam skala waktu evolusioner."},
+  {f:"Homo Deva (istilah buku)", b:"Konsep naratif ciptaan Mary Belknap — bukan istilah taksonomi ilmiah."},
+  {f:"Fosil Jebel Irhoud", b:"Fosil Homo sapiens tertua yang diketahui, ±300.000 tahun, ditemukan di Maroko."}
+];
+
+const REFERENCES = {
+  "Buku": [
+    {t:"Homo Deva: Tahap Lanjut Evolusi Umat Manusia — Mary Belknap, Ph.D. (Alvabet, 2019)", s:"Sumber primer yang dikaji di situs ini."},
+    {t:"Sapiens: Riwayat Singkat Umat Manusia — Yuval Noah Harari", s:"Tinjauan populer tentang sejarah kognitif dan budaya manusia."},
+    {t:"The Origin of Species — Charles Darwin", s:"Karya dasar teori evolusi melalui seleksi alam."}
+  ],
+  "Jurnal Ilmiah": [
+    {t:"Journal of Human Evolution", s:"Jurnal peer-review utama untuk paleoantropologi dan evolusi manusia."},
+    {t:"Nature — Human Evolution collection", s:"Kumpulan riset primer tentang fosil dan genetika hominin."},
+    {t:"American Journal of Physical Anthropology", s:"Riset biologi dan evolusi manusia secara fisik."}
+  ],
+  "Artikel": [
+    {t:"Smithsonian National Museum of Natural History — Human Origins Program", s:"Ringkasan publik berbasis riset tentang evolusi manusia."},
+    {t:"Stanford Encyclopedia of Philosophy — entri tentang Kesadaran & Filsafat Pikiran", s:"Latar filosofis untuk topik kesadaran."}
+  ],
+  "Dokumenter": [
+    {t:"Becoming Human (NOVA/PBS)", s:"Seri dokumenter tentang evolusi manusia berbasis riset paleoantropologi."},
+    {t:"First Peoples (PBS)", s:"Eksplorasi penyebaran Homo sapiens ke berbagai benua."}
+  ]
+};
+
+/* ================= STORAGE HELPERS ================= */
+async function storeGet(key, shared=false){ try{ const r = await window.storage.get(key, shared); return r ? JSON.parse(r.value) : null; }catch(e){ return null; } }
+async function storeSet(key, value, shared=false){ try{ await window.storage.set(key, JSON.stringify(value), shared); }catch(e){ console.error(e); } }
+
+/* ================= NAVIGATION ================= */
+const pages = ["home","book","chapters","evolution","homodeva","comparison","glossary","quiz","notes","discussion","references"];
+const titles = {home:"Beranda",book:"Tentang Buku",chapters:"Ringkasan Bab",evolution:"Evolusi Manusia",homodeva:"Homo Deva",comparison:"Perbandingan",glossary:"Kamus Istilah",quiz:"Kuis",notes:"Catatan Pribadi",discussion:"Diskusi",references:"Referensi"};
+
+async function goPage(name){
+  pages.forEach(p=>document.getElementById('page-'+p).classList.toggle('hidden', p!==name));
+  document.querySelectorAll('.navlink[data-page]').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
+  document.getElementById('topbarTitle').textContent = titles[name];
+  document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo({top:0, behavior:'smooth'});
+  await trackVisit(name);
+}
+document.querySelectorAll('.navlink[data-page]').forEach(el=>{
+  el.addEventListener('click', e=>{ e.preventDefault(); goPage(el.dataset.page); });
+});
+document.getElementById('menuBtn').addEventListener('click', ()=> document.getElementById('sidebar').classList.toggle('open'));
+
+/* progress tracking */
+async function trackVisit(name){
+  let visited = await storeGet('progress:visited') || [];
+  if(!visited.includes(name)) visited.push(name);
+  await storeSet('progress:visited', visited);
+  renderProgress(visited);
+}
+function renderProgress(visited){
+  const pct = Math.round((visited.length / pages.length) * 100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = pct+'% modul dikunjungi';
+}
+
+/* theme */
+async function setTheme(mode){
+  document.body.setAttribute('data-theme', mode);
+  document.getElementById('themeLabel').textContent = mode==='dark' ? 'Mode Gelap' : 'Mode Terang';
+  await storeSet('prefs:theme', mode);
+}
+document.getElementById('themeToggle').addEventListener('click', async ()=>{
+  const cur = document.body.getAttribute('data-theme');
+  await setTheme(cur==='dark' ? 'light' : 'dark');
+});
+
+/* ================= RENDER: HOME quote ================= */
+function renderQuote(){
+  const q = QUOTES[Math.floor(Math.random()*QUOTES.length)];
+  document.getElementById('quoteStrip').innerHTML = q.t + '<cite>'+q.c+'</cite>';
+}
+
+/* ================= RENDER: CHAPTERS ================= */
+function renderChapters(){
+  const list = document.getElementById('chapterList');
+  list.innerHTML = CHAPTERS.map((c,i)=>`
+    <div class="chapter-item" data-idx="${i}">
+      <button class="chapter-head" onclick="toggleChapter(${i})">
+        <span class="chapter-idx mono">${String(i+1).padStart(2,'0')}</span>
+        <span class="ct"><h4>${c.t}</h4><span>${c.tag} — klik untuk membuka</span></span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="chapter-body"><div class="chapter-body-inner">
+        <div><h5>Ringkasan Singkat</h5><p style="font-size:14px;">${c.ringkasan}</p></div>
+        <div><h5>Ide Utama</h5><ul>${c.ide.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        <div><h5>Istilah Penting</h5>${c.istilah.map(x=>`<span class="term-tag">${x}</span>`).join('')}</div>
+        <div><h5>Pertanyaan Refleksi</h5><ul>${c.refleksi.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        <div><h5>Catatan Kritis</h5><div class="critical-note">${c.catatan}</div></div>
+        <div><button class="btn ghost sm" onclick="bookmarkChapter(${i})">☆ Tandai sebagai favorit</button></div>
+      </div></div>
+    </div>
+  `).join('');
+}
+function toggleChapter(i){
+  document.querySelectorAll('.chapter-item').forEach((el,idx)=>{
+    if(idx===i) el.classList.toggle('open'); else el.classList.remove('open');
+  });
+}
+async function bookmarkChapter(i){
+  let marks = await storeGet('notes:bookmarks') || [];
+  if(!marks.includes(i)) marks.push(i);
+  await storeSet('notes:bookmarks', marks);
+  renderBookmarks(marks);
+  alert('Ditandai: '+CHAPTERS[i].t);
+}
+
+/* ================= RENDER: EVOLUTION ================= */
+function renderTimeline(){
+  const list = document.getElementById('timelineList');
+  list.innerHTML = EVOLUTION.map((e,i)=>`
+    <div class="tl-item" data-idx="${i}" onclick="toggleTl(${i})">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-head"><h4>${e.name} <span class="lat">${e.lat}</span></h4><span class="tl-time">${e.time}</span></div>
+        <div class="tl-detail"><p>${e.desc}</p></div>
+      </div>
+    </div>
+  `).join('');
+}
+function toggleTl(i){ document.querySelectorAll('.tl-item')[i].classList.toggle('open'); }
+
+/* ================= RENDER: HOMO DEVA ================= */
+function renderPersp(){
+  document.getElementById('perspTabs').innerHTML = PERSPECTIVES.map((p,i)=>`<button class="persp-tab ${i===0?'active':''}" data-k="${p.key}" onclick="showPersp('${p.key}')">${p.label}</button>`).join('');
+  document.getElementById('perspPanels').innerHTML = PERSPECTIVES.map((p,i)=>`
+    <div class="persp-panel ${i===0?'active':''}" id="persp-${p.key}">
+      <div class="card">
+        <span class="label ${p.tag}" style="margin-bottom:12px;">${p.tag==='fakta'?'Fakta Ilmiah':p.tag==='hipotesis'?'Hipotesis':p.tag==='opini'?'Opini':'Refleksi'}</span>
+        <p style="font-size:14.5px; color:var(--text-dim); margin-top:10px;">${p.body}</p>
+      </div>
+    </div>
+  `).join('');
+}
+function showPersp(key){
+  document.querySelectorAll('.persp-tab').forEach(t=>t.classList.toggle('active', t.dataset.k===key));
+  document.querySelectorAll('.persp-panel').forEach(p=>p.classList.toggle('active', p.id==='persp-'+key));
+}
+
+/* ================= RENDER: COMPARISON ================= */
+let compFilter = 'all';
+function renderCompFilters(){
+  const opts = [['all','Semua'],['green','🟢 Didukung'],['yellow','🟡 Diperdebatkan'],['red','🔴 Belum Ada Bukti']];
+  document.getElementById('compFilters').innerHTML = opts.map(([k,l])=>`<button class="filter-chip ${compFilter===k?'active':''}" onclick="setCompFilter('${k}')">${l}</button>`).join('');
+}
+function setCompFilter(k){ compFilter=k; renderCompFilters(); renderComp(); }
+function renderComp(){
+  const rows = COMPARISON.filter(r=> compFilter==='all' || r.level===compFilter);
+  const icon = {green:'🟢',yellow:'🟡',red:'🔴'};
+  const txt = {green:'Didukung',yellow:'Diperdebatkan',red:'Belum kuat'};
+  document.getElementById('compBody').innerHTML = rows.map(r=>`
+    <tr>
+      <td data-label="Klaim">${r.klaim}</td>
+      <td data-label="Bukti">${r.bukti}</td>
+      <td data-label="Dukungan"><span class="support ${r.level}"><span class="dot"></span>${icon[r.level]} ${txt[r.level]}</span></td>
+      <td data-label="Catatan">${r.catatan}</td>
+    </tr>
+  `).join('');
+}
+
+/* ================= RENDER: GLOSSARY ================= */
+function renderGlossary(filter=''){
+  const items = GLOSSARY.filter(g => g.t.toLowerCase().includes(filter.toLowerCase()) || g.d.toLowerCase().includes(filter.toLowerCase()));
+  document.getElementById('glossGrid').innerHTML = items.map(g=>`<div class="gloss-item"><h4>${g.t}</h4><p>${g.d}</p></div>`).join('') || '<p style="color:var(--text-dim);">Tidak ada istilah yang cocok.</p>';
+}
+
+/* ================= RENDER: QUIZ ================= */
+let quizMode = 'mcq';
+let quizScore = {mcq:0, tf:0, done:{mcq:0,tf:0}};
+function renderQuizTabs(){
+  document.getElementById('quizTabs').innerHTML = `
+    <button class="filter-chip ${quizMode==='mcq'?'active':''}" onclick="setQuizMode('mcq')">Pilihan Ganda</button>
+    <button class="filter-chip ${quizMode==='tf'?'active':''}" onclick="setQuizMode('tf')">Benar/Salah</button>
+    <button class="filter-chip ${quizMode==='fc'?'active':''}" onclick="setQuizMode('fc')">Flashcard</button>
+    <button class="filter-chip ${quizMode==='weekly'?'active':''}" onclick="setQuizMode('weekly')">Tantangan Mingguan</button>
+  `;
+}
+function setQuizMode(m){ quizMode=m; renderQuizTabs(); renderQuizContent(); }
+function renderQuizContent(){
+  const el = document.getElementById('quizContent');
+  if(quizMode==='mcq'){
+    el.innerHTML = `<div class="card"><span class="score-badge">Skor: ${quizScore.mcq}/${QUIZ_MCQ.length}</span></div>` + QUIZ_MCQ.map((q,i)=>`
+      <div class="card fade-up" style="margin-top:14px;">
+        <p style="font-weight:600; margin-bottom:12px; font-size:14.5px;">${i+1}. ${q.q}</p>
+        ${q.opts.map((o,j)=>`<button class="qopt" onclick="answerMcq(${i},${j},this)">${o}</button>`).join('')}
+      </div>`).join('');
+  } else if(quizMode==='tf'){
+    el.innerHTML = `<div class="card"><span class="score-badge">Skor: ${quizScore.tf}/${QUIZ_TF.length}</span></div>` + QUIZ_TF.map((q,i)=>`
+      <div class="card fade-up" style="margin-top:14px;">
+        <p style="font-weight:600; margin-bottom:12px; font-size:14.5px;">${i+1}. ${q.q}</p>
+        <button class="qopt" style="display:inline-block; width:auto; margin-right:10px;" onclick="answerTf(${i},true,this)">Benar</button>
+        <button class="qopt" style="display:inline-block; width:auto;" onclick="answerTf(${i},false,this)">Salah</button>
+      </div>`).join('');
+  } else if(quizMode==='fc'){
+    el.innerHTML = FLASHCARDS.map((c,i)=>`
+      <div class="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="fc-face fc-front"><strong>${c.f}</strong></div>
+          <div class="fc-face fc-back">${c.b}</div>
+        </div>
+      </div>`).join('');
+  } else {
+    el.innerHTML = `<div class="card"><h4 style="margin-bottom:8px;">Tantangan Minggu Ini</h4><p style="font-size:14px; color:var(--text-dim); margin-bottom:14px;">Coba jawab tanpa membuka Kamus Istilah dulu:</p>
+      <p style="font-weight:600; margin-bottom:12px;">"Jelaskan dalam satu kalimat perbedaan antara evolusi biologis dan narasi 'evolusi kesadaran' dalam buku Homo Deva."</p>
+      <textarea rows="3" id="weeklyAnswer" placeholder="Tulis jawabanmu di sini…"></textarea>
+      <button class="btn sm" style="margin-top:10px;" onclick="saveWeekly()">Simpan Jawaban ke Catatan</button>
+      <p id="weeklyMsg" style="font-size:12.5px; color:var(--fact); margin-top:8px;"></p>
+    </div>`;
+  }
+}
+function answerMcq(qi,ji,btn){
+  const group = btn.parentElement.querySelectorAll('.qopt');
+  group.forEach(b=>b.disabled=true);
+  const correct = QUIZ_MCQ[qi].correct;
+  group[correct].classList.add('correct');
+  if(ji!==correct) btn.classList.add('wrong'); else { quizScore.mcq++; }
+  document.querySelector('.score-badge').textContent = 'Skor: '+quizScore.mcq+'/'+QUIZ_MCQ.length;
+  storeSet('quiz:mcqScore', quizScore.mcq);
+}
+function answerTf(qi,val,btn){
+  const group = btn.parentElement.querySelectorAll('.qopt');
+  group.forEach(b=>b.disabled=true);
+  const correct = QUIZ_TF[qi].a;
+  if(val===correct){ btn.classList.add('correct'); quizScore.tf++; } else { btn.classList.add('wrong'); }
+  document.querySelector('.score-badge').textContent = 'Skor: '+quizScore.tf+'/'+QUIZ_TF.length;
+  storeSet('quiz:tfScore', quizScore.tf);
+}
+async function saveWeekly(){
+  const val = document.getElementById('weeklyAnswer').value.trim();
+  if(!val) return;
+  await addNote('Tantangan Mingguan', val);
+  document.getElementById('weeklyMsg').textContent = 'Tersimpan ke Catatan Pribadi ✓';
+}
+
+/* ================= RENDER: NOTES ================= */
+async function addNote(title, body){
+  let notes = await storeGet('notes:list') || [];
+  notes.unshift({id:Date.now(), title: title||'Tanpa judul', body, date:new Date().toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})});
+  await storeSet('notes:list', notes);
+  renderNotes(notes);
+}
+function renderNotes(notes){
+  const el = document.getElementById('notesList');
+  if(!notes.length){ el.innerHTML='<p style="color:var(--text-dim); font-size:13px;">Belum ada catatan.</p>'; return; }
+  el.innerHTML = notes.map(n=>`
+    <div class="note-card">
+      <div class="meta"><span>${n.title} · ${n.date}</span><button class="icon-btn" onclick="deleteNote(${n.id})">✕</button></div>
+      <p>${n.body}</p>
+    </div>`).join('');
+}
+async function deleteNote(id){
+  let notes = await storeGet('notes:list') || [];
+  notes = notes.filter(n=>n.id!==id);
+  await storeSet('notes:list', notes);
+  renderNotes(notes);
+}
+function renderBookmarks(marks){
+  const el = document.getElementById('bookmarkList');
+  if(!marks || !marks.length){ el.innerHTML='<p style="color:var(--text-dim); font-size:13px;">Belum ada bab favorit. Buka halaman Ringkasan Bab lalu tandai.</p>'; return; }
+  el.innerHTML = marks.map(i=>`<div class="bookmark-row"><span>${CHAPTERS[i].t}</span><button class="icon-btn" onclick="removeBookmark(${i})">✕</button></div>`).join('');
+}
+async function removeBookmark(i){
+  let marks = await storeGet('notes:bookmarks') || [];
+  marks = marks.filter(x=>x!==i);
+  await storeSet('notes:bookmarks', marks);
+  renderBookmarks(marks);
+}
+document.getElementById('saveNoteBtn').addEventListener('click', async ()=>{
+  const title = document.getElementById('noteTitle').value.trim();
+  const body = document.getElementById('noteBody').value.trim();
+  if(!body) return;
+  await addNote(title, body);
+  document.getElementById('noteTitle').value='';
+  document.getElementById('noteBody').value='';
+});
+
+/* ================= RENDER: DISCUSSION (shared) ================= */
+async function loadPosts(){
+  let posts = await storeGet('discussion:posts', true) || [];
+  renderPosts(posts);
+}
+function renderPosts(posts){
+  const el = document.getElementById('postsList');
+  if(!posts.length){ el.innerHTML='<p style="color:var(--text-dim); font-size:13px;">Belum ada diskusi. Jadilah yang pertama bertanya!</p>'; return; }
+  el.innerHTML = posts.slice().reverse().map(p=>`
+    <div class="post">
+      <div class="post-head"><div class="avatar">${(p.name||'A')[0].toUpperCase()}</div><div><div class="post-name">${p.name||'Anonim'}</div><div class="post-time">${p.date}</div></div></div>
+      <p style="font-size:13.5px;">${p.body}</p>
+      <button class="vote-btn" onclick="votePost(${p.id})">▲ ${p.votes||0} suara</button>
+    </div>`).join('');
+}
+document.getElementById('postBtn').addEventListener('click', async ()=>{
+  const name = document.getElementById('postName').value.trim();
+  const body = document.getElementById('postBody').value.trim();
+  if(!body) return;
+  let posts = await storeGet('discussion:posts', true) || [];
+  posts.push({id:Date.now(), name, body, votes:0, date:new Date().toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})});
+  await storeSet('discussion:posts', posts, true);
+  document.getElementById('postName').value=''; document.getElementById('postBody').value='';
+  renderPosts(posts.slice());
+  loadPosts();
+});
+async function votePost(id){
+  let posts = await storeGet('discussion:posts', true) || [];
+  posts = posts.map(p=> p.id===id ? {...p, votes:(p.votes||0)+1} : p);
+  await storeSet('discussion:posts', posts, true);
+  renderPosts(posts);
+}
+
+function renderReferences(){
+  const el = document.getElementById('refContent');
+  el.innerHTML = Object.entries(REFERENCES).map(([cat,items])=>`
+    <div class="ref-cat"><h4>${cat}</h4>
+      ${items.map(i=>`<div class="ref-item">${i.t}<span>${i.s}</span></div>`).join('')}
+    </div>`).join('');
+}
+
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  const v = e.target.value;
+  if(v.length>1){
+    goPage('glossary');
+    renderGlossary(v);
+  } else {
+    renderGlossary('');
+  }
+});
+
+/* ================= FAQ SIAP JAWAB ================= */
+const chatFab = document.getElementById('chatFab');
+const chatPanel = document.getElementById('chatPanel');
+const chatClose = document.getElementById('chatClose');
+const chatBody = document.getElementById('chatBody');
+
+// Buka / Tutup Panel
+chatFab.addEventListener('click', () => chatPanel.classList.toggle('hidden'));
+chatClose.addEventListener('click', () => chatPanel.classList.add('hidden'));
+
+// Daftar Pertanyaan & Jawaban yang sudah disiapkan
+const daftarFAQ = [
+  {
+    tanya: "Apa perbedaan utama evolusi manusia biasa dengan gagasan Homo Deva?",
+    jawab: "🔬 **Fakta Ilmiah:** Evolusi manusia berjalan jutaan tahun lewat seleksi alam.\n💡 **Hipotesis:** Homo Deva adalah gagasan tentang tahap perkembangan yang lebih maju.\n📝 **Opini Penulis:** Menurut Mary Belknap, perubahan ini didorong kesadaran dan teknologi.\n🧘 **Refleksi:** Perubahan bukan hanya fisik, melainkan juga cara berpikir dan bertindak."
+  },
+  {
+    tanya: "Apakah Homo Deva sudah terbukti secara ilmiah?",
+    jawab: "🔬 **Fakta Ilmiah:** Belum ada bukti empiris atau penelitian yang memvalidasi konsep ini.\n💡 **Status:** Ini termasuk **hipotesis dan spekulasi pemikiran**, bukan fakta yang teruji.\n⚠️ **Catatan:** Gagasan ini perlu diteliti lebih lanjut sebelum bisa diterima sebagai fakta ilmiah."
+  },
+  {
+    tanya: "Apa tujuan dibuatnya situs ini?",
+    jawab: "Situs ini dibuat sebagai wadah belajar mandiri untuk memahami gagasan dalam buku *Homo Deva* secara objektif: memilah mana fakta, mana hipotesis, mana pandangan penulis, dan mana refleksi filosofis — agar pembaca tidak salah mengartikan spekulasi sebagai kebenaran mutlak."
+  },
+  {
+    tanya: "Dari mana saja sumber isi situs ini?",
+    jawab: "Seluruh isi adalah hasil pemikiran, rangkuman, dan pemahaman mandiri terhadap materi buku tersebut. Tidak mengambil data resmi, dokumen berhak cipta, atau sumber rujukan khusus dari pihak lain. Situs ini bersifat edukasi dan bukan pengganti sumber asli."
+  },
+  {
+    tanya: "Bagaimana cara membedakan Fakta, Hipotesis, Opini, dan Refleksi?",
+    jawab: "🔹 **Fakta Ilmiah:** Sesuatu yang sudah teruji, teramati, dan disepakati ilmu pengetahuan.\n🔹 **Hipotesis:** Dugaan atau gagasan yang masuk akal tapi belum teruji kebenarannya.\n🔹 **Opini Penulis:** Pandangan pribadi Mary Belknap dalam bukunya.\n🔹 **Refleksi:** Renungan atau pemaknaan filosofis yang menyertai gagasan tersebut."
+  }
+];
+
+// Tampilkan daftar pertanyaan saat pertama dibuka
+function tampilkanDaftarPertanyaan(){
+  chatBody.innerHTML = `
+    <div class="chat-msg sys">Pilih pertanyaan yang ingin kamu ketahui jawabannya:</div>
+    ${daftarFAQ.map((item, idx) => `
+      <button class="faq-btn" data-id="${idx}">${item.tanya}</button>
+    `).join('')}
+  `;
+
+  // Beri aksi ke setiap tombol pertanyaan
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const data = daftarFAQ[id];
+      chatBody.innerHTML = `
+        <div class="chat-msg user">${data.tanya}</div>
+        <div class="chat-msg ai">${data.jawab.replace(/\n/g, '<br>')}</div>
+        <button class="faq-btn" style="margin-top:12px;">← Kembali ke daftar pertanyaan</button>
+      `;
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      // Tombol kembali
+      chatBody.querySelector('.faq-btn').addEventListener('click', tampilkanDaftarPertanyaan);
+    });
+  });
+}
+
+// Jalankan pertama kali
+tampilkanDaftarPertanyaan();
+
+document.addEventListener('DOMContentLoaded', async function(){
+  /* ================= INIT ASLI ================= */
+  const savedTheme = await storeGet('prefs:theme');
+  await setTheme(savedTheme || 'dark');
+  renderQuote();
+  renderChapters();
+  renderTimeline();
+  renderPersp();
+  renderCompFilters(); renderComp();
+  renderGlossary();
+  renderQuizTabs(); renderQuizContent();
+  renderReferences();
+  // ❌ WAJIB KOMENTARI / HAPUS loadPosts() — ini penyebab utamanya
+  // loadPosts();
+  const notes = await storeGet('notes:list') || [];
+  renderNotes(notes);
+  const marks = await storeGet('notes:bookmarks') || [];
+  renderBookmarks(marks);
+  const visited = await storeGet('progress:visited') || [];
+  renderProgress(visited);
+  goPage('home');
+
+  /* ================= FUNGSI DISKUSI ANTI ERROR ================= */
+  // Tunggu sebentar sampai elemen benar-benar siap
+  setTimeout(async () => {
+    const postName = document.getElementById('postName');
+    const postBody = document.getElementById('postBody');
+    const postBtn = document.getElementById('postBtn');
+    const postsList = document.getElementById('postsList');
+
+    // Kalau elemen tidak ketemu, berhenti
+    if(!postName || !postBody || !postBtn || !postsList) return;
+
+    let posts = await storeGet('forum:posts') || [];
+
+    function renderPosts(){
+      if(posts.length === 0){
+        postsList.innerHTML = `<p style="color:var(--text-dim); font-style:italic;">Belum ada diskusi. Jadilah yang pertama berbagi!</p>`;
+        return;
+      }
+      postsList.innerHTML = posts.map(p => `
+        <div class="card" style="margin-bottom:12px;">
+          <div style="font-weight:600; color:var(--primary-2); margin-bottom:4px;">${p.nama || 'Anonim'}</div>
+          <div style="color:var(--text); white-space:pre-wrap;">${p.isi}</div>
+          <div style="font-size:11px; color:var(--text-dim); margin-top:8px;">${p.waktu}</div>
+        </div>
+      `).join('');
+    }
+
+    postBtn.addEventListener('click', ()=>{
+      const isi = postBody.value.trim();
+      // Cek apakah benar-benar kosong
+      if(isi.length === 0){
+        alert('Tulis pendapatmu dulu ya!');
+        return;
+      }
+
+      posts.unshift({
+        nama: postName.value.trim() || 'Anonim',
+        isi: isi,
+        waktu: new Date().toLocaleString('id-ID')
+      });
+
+      storeSet('forum:posts', posts);
+      renderPosts();
+      postBody.value = '';
+      postName.value = '';
+    });
+
+    renderPosts();
+  }, 100); 
+});
+
+</script>
+</body>
+</html>
